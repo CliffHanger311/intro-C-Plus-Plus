@@ -12,18 +12,30 @@ int main()
 	float Part03 = 65.40;
 	float Part04 = 103.45;
 	
-	int ColumnWidth = 15;
+	int ColumnOne = 15;
+	int ColumnTwo = 1;
+	int ColumnThree = 10;
 
-	cout << left << setw(ColumnWidth) << "PART NO." 
+
+	cout << left << setw(ColumnOne) << "PART NO." 
+		<< setw(ColumnTwo) << " " 
 		<< right << "PRICE" << endl;
-	cout << left << setw(ColumnWidth) << "T1267"
-		<< right << "$" << Part01 << endl;
-	cout << left << setw(ColumnWidth) << "T1300"
-		<< right << "$" << Part02 << endl;
-	cout << left << setw(ColumnWidth) << "T2401"
-		<< right << "$" << Part03 << endl;
-	cout << left << setw(ColumnWidth) << "T4482"
-		<< right << "$" << Part04;
+
+	cout << left << setw(ColumnOne) << "T1267"
+		<< setw(ColumnTwo) << "$" 
+		<< right << setw(ColumnTwo) << Part01 << endl;
+
+	cout << left << setw(ColumnOne) << "T1300"
+		<< setw(ColumnTwo) << "$" 
+		<< right << setw(ColumnTwo) << Part02 << endl;
+
+	cout << left << setw(ColumnOne) << "T2401"
+		 << setw(ColumnTwo) << "$" 
+		<< right << setw(ColumnTwo) << Part03 << endl;
+
+	cout << left << setw(ColumnOne) << "T4482"
+		 << setw(ColumnTwo) << "$" 
+		<< right << setw(ColumnTwo) << Part04;
 
 
 
