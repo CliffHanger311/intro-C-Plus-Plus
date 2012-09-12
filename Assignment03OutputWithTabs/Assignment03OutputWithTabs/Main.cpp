@@ -6,39 +6,28 @@ using namespace std;
 
 int main()
 {  
-	//declare variables
-	float Part01 = 6.34;
-	float Part02 = 8.92;
-	float Part03 = 65.40;
-	float Part04 = 103.45;
-	
+	//declare variables for column size
 	int ColumnOne = 15;
-	int ColumnTwo = 1;
-	int ColumnThree = 10;
+	int ColumnTwo = 10;
+	
+	cout << fixed << setprecision(2);
 
-
+	//Display rows, first row left aligned with column one width
+	//Second row right aligned with second column width
 	cout << left << setw(ColumnOne) << "PART NO." 
-		<< setw(ColumnTwo) << " " 
-		<< right << "PRICE" << endl;
+		<< right << setw(ColumnTwo) << "PRICE" << endl;
 
 	cout << left << setw(ColumnOne) << "T1267"
-		<< setw(ColumnTwo) << "$" 
-		<< right << setw(ColumnTwo) << Part01 << endl;
+		<< right << setw(ColumnTwo) << "$6.34" << endl;
 
 	cout << left << setw(ColumnOne) << "T1300"
-		<< setw(ColumnTwo) << "$" 
-		<< right << setw(ColumnTwo) << Part02 << endl;
+		<< right << setw(ColumnTwo) << "$8.92" << endl;
 
 	cout << left << setw(ColumnOne) << "T2401"
-		 << setw(ColumnTwo) << "$" 
-		<< right << setw(ColumnTwo) << Part03 << endl;
+		<< right << setw(ColumnTwo) << "$65.40" << endl;
 
 	cout << left << setw(ColumnOne) << "T4482"
-		 << setw(ColumnTwo) << "$" 
-		<< right << setw(ColumnTwo) << Part04;
-
-
-
+		<< right << setw(ColumnTwo) << "$103.45";
 
 	_getch();
 	return 0;
