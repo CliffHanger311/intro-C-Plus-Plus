@@ -22,6 +22,7 @@ int main()
 		//Ask user for temperature input
 		cout << "Please enter a number for temperature conversion:" << endl;
 		cin >> TemperatureIN;
+		cout << endl;
 
 		//Ask user for the type of temperature, f or c
 		cout << "Please Select the scale, or type, of degrees for current temperature: " 
@@ -53,6 +54,7 @@ int main()
 		//Ask user if they wish to continue
 		cout << "Do you wish to perform another calculation? y/n" << endl;
 		cin >> C;
+		cout << endl;
 
 		if (C == 'y'||C == 'Y')
 		{
