@@ -1,38 +1,41 @@
 #include <iostream>
 #include <conio.h>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
 //Function prototypes
 bool CheckInput(char);
-int ValidateInput(int, int);
-int isdigit(int);
+double ValidateInput(string);
+
+int isdigit(double);
 
 int main()
 {
 	//Declare Variables
-	int FirstNum = 0;
-	int SecondNum = 0;
+	double FirstNum = 0;
+	double SecondNum = 0;
+	string Input;
 	char C;
 
 	//Loop that user can control
 	bool RunProgram = true;
 	while(RunProgram == true)
-
 	{
 		//request user input
 		cout << "Please enter two numbers!" << endl;
 		cout << "First: ";
-		cin >> FirstNum;
-
-		if (isdigit(FirstNum))
-
-				
+		cin >> Input;
 		cout << endl;
+
+		FirstNum = ValidateInput(Input);
+	
 		cout << "Second: ";
-		cin >> SecondNum;
+		cin >> Input;
 		cout << endl;
+
+		SecondNum = ValidateInput(Input);
 
 		/*
 			Use ValidateInput fucntion to check for num values
@@ -66,7 +69,8 @@ bool CheckInput(char X)
 {
 	bool IncorrectInput = true;
 	while(IncorrectInput == true)
-	if(X == 'y'|| X == 'Y')
+	{
+		if(X == 'y'|| X == 'Y')
 		{
 			//valid input, return true to continue
 			IncorrectInput = false;
@@ -86,14 +90,35 @@ bool CheckInput(char X)
 			cin >> X;
 			cout << endl;
 			IncorrectInput = true;
+			return false;
 		}
+	}
 }
 
 
-int ValidateInput(int Num1, int Num2)
+double ValidateInput(string FromUser)
 {
+	int start = 0;
+	int i;
+	bool valid = true;
+	bool sign = false;
 
-	return true;
+	if (int(FromUser.length()) == 0)
+	{
+		valid = false;
+	}
+
+	i = start;
+	while(valid && i > int(FromUser.length()))
+	{
+		if(!isdigit(FromUser.at(i))) 
+		{
+			valid = false;
+			i++;
+		}
+	}
+
+	return valid;
 }
 
 
