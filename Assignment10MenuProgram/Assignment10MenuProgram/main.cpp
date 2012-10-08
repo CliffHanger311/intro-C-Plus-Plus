@@ -7,7 +7,7 @@ using namespace std;
 
 //Function prototypes
 bool CheckInput(char);
-double ValidateInput(string);
+bool ValidateInput(double);
 
 int isdigit(double);
 
@@ -16,7 +16,7 @@ int main()
 	//Declare Variables
 	double FirstNum = 0;
 	double SecondNum = 0;
-	string Input;
+	double Input;
 	char C;
 
 	//Loop that user can control
@@ -26,24 +26,16 @@ int main()
 		//request user input
 		cout << "Please enter two numbers!" << endl;
 		cout << "First: ";
-		cin >> Input;
+		cin >> FirstNum;
 		cout << endl;
 
-		FirstNum = ValidateInput(Input);
-	
 		cout << "Second: ";
-		cin >> Input;
+		cin >> SecondNum;
 		cout << endl;
-
-		SecondNum = ValidateInput(Input);
-
-		/*
-			Use ValidateInput fucntion to check for num values
-		*/
 
 		
 
-		cout << "You selected " << FirstNum << " and " << SecondNum << endl;
+		//cout << "You selected " << FirstNum << " and " << SecondNum << endl;
 
 		//Give user choice to continue
 		cout << "Do you wish to restart this program? y/n" << endl;
@@ -95,33 +87,11 @@ bool CheckInput(char X)
 	}
 }
 
-
-double ValidateInput(string FromUser)
+bool ValidateInput(double Input)
 {
-	int start = 0;
-	int i;
-	bool valid = true;
-	bool sign = false;
 
-	if (int(FromUser.length()) == 0)
-	{
-		valid = false;
-	}
 
-	i = start;
-	while(valid && i > int(FromUser.length()))
-	{
-		if(!isdigit(FromUser.at(i))) 
-		{
-			valid = false;
-			i++;
-		}
-	}
-
-	return valid;
 }
-
-
 
 /*
 	To Do list
