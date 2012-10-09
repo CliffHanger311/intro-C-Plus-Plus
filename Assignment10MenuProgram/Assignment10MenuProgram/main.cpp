@@ -7,9 +7,8 @@ using namespace std;
 
 //Function prototypes
 bool CheckInput(char);
-bool ValidateInput(double);
-
-int isdigit(double);
+bool ValidateInput(int, int, char);
+//int isdigit(double);
 
 int main()
 {
@@ -18,13 +17,22 @@ int main()
 	double SecondNum = 0;
 	double Input;
 	char C;
+	int Selection = 0;
+
+	//Greeting to the user
+	cout << "This program was designed to take two numbers" << endl 
+		<< "and perform the calculation of your choosing!" << endl
+		<< endl;
 
 	//Loop that user can control
 	bool RunProgram = true;
 	while(RunProgram == true)
 	{
 		//request user input
-		cout << "Please enter two numbers!" << endl;
+
+		cout << "Please enter two numbers!" << endl 
+			<< endl;
+
 		cout << "First: ";
 		cin >> FirstNum;
 		cout << endl;
@@ -33,12 +41,25 @@ int main()
 		cin >> SecondNum;
 		cout << endl;
 
+		//Ask the user what they want to do, listing the five choices.
+		cout << "What would you like to do with these numbers?" << endl
+			<< endl
+			<< "1 - Addition" << endl
+			<< "2 - Subtraction" << endl
+			<< "3 - Multiply" << endl
+			<< "4 - Division" << endl
+			<< "5 - Average" << endl
+			<< "6-9 - To select new numbers" 
+			<< endl
+			<<"Please select a number between 1-5: ";
+		cin >> Selection;
+
+		cout << endl;
+
+		ValidateInput(FirstNum, SecondNum, Selection);
 		
-
-		//cout << "You selected " << FirstNum << " and " << SecondNum << endl;
-
 		//Give user choice to continue
-		cout << "Do you wish to restart this program? y/n" << endl;
+		cout << endl << "Do you wish to restart this program? y/n" << endl;
 		cin >> C;
 		cout << endl;
 		RunProgram = CheckInput(C);
@@ -46,7 +67,7 @@ int main()
 		//Display good bye to user when exiting
 		if(RunProgram == false)
 		{
-			cout << "Thank you for using this program!!" << endl;
+			cout << endl << "Thank you for using this program!!" << endl;
 		}
 		
 	}
@@ -87,18 +108,60 @@ bool CheckInput(char X)
 	}
 }
 
-bool ValidateInput(double Input)
+bool ValidateInput(int Number1, int Number2, char Selection)
 {
+	//Variables for function
+	bool IncorrectInput = true;
+	double Answer;
 
-
+	while(IncorrectInput == true)
+	{
+		switch(Selection)
+		{
+		case 1:
+			Answer = Number1 + Number2;
+			cout << Number1 << " + " << Number2 << " equals " << Answer<< endl;
+			IncorrectInput = true;
+			return true;
+			break;
+		case 2:
+			Answer = Number1 - Number2;
+			cout << Number1 << " - " << Number2 << " equals " << Answer<< endl;
+			IncorrectInput = true;
+			return true;
+			break;
+		case 3:
+			Answer = Number1 * Number2;
+			cout << Number1 << " * " << Number2 << " equals " << Answer<< endl;
+			IncorrectInput = true;
+			return true;
+			break;
+		case 4:
+			Answer = Number1 / Number2;
+			cout << Number1 << " / " << Number2 << " equals " << Answer<< endl;
+			IncorrectInput = true;
+			return true;
+			break;
+		case 5: 
+			Answer = (Number1 + Number2) / 2;
+			cout << "The Average of " << Number1 << " and " << Number2 << " is " << Answer<< endl;
+			IncorrectInput = true;
+			return true;
+			break;
+		default:
+			cout << "Please enter a number between 1-5!";
+			IncorrectInput = false;
+			return true;
+			break;
+		}
+	}
+	
 }
 
 /*
 	To Do list
 	Looking to validate user input for numbers
-	Started the function, but it's not complete
+	Function top valid input seems to be working
 
-	restarting of program works great
-
-	also need to create menu options 
+	Needs further debugging 
 */
