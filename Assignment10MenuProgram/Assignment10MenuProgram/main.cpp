@@ -26,7 +26,7 @@ int main()
 
 	//Loop that user can control
 	bool RunProgram = true;
-	while(RunProgram == true)
+	do 
 	{
 		//request user input
 
@@ -49,20 +49,24 @@ int main()
 			<< "3 - Multiply" << endl
 			<< "4 - Division" << endl
 			<< "5 - Average" << endl
-			<< "6-9 - To select new numbers" 
+			<< "6-9 - To select new numbers" << endl
+			<< "0 - To quit" << endl
 			<< endl
-			<<"Please select a number between 1-5: ";
+			<<"Please select a number: ";
 		cin >> Selection;
 
 		cout << endl;
 
-		ValidateInput(FirstNum, SecondNum, Selection);
+		RunProgram = ValidateInput(FirstNum, SecondNum, Selection);
 		
 		//Give user choice to continue
-		cout << endl << "Do you wish to restart this program? y/n" << endl;
-		cin >> C;
-		cout << endl;
-		RunProgram = CheckInput(C);
+		if (RunProgram == true)
+		{
+			cout << endl << "Do you wish to restart this program? y/n" << endl;
+			cin >> C;
+			cout << endl;
+			RunProgram = CheckInput(C);
+		}
 
 		//Display good bye to user when exiting
 		if(RunProgram == false)
@@ -70,7 +74,8 @@ int main()
 			cout << endl << "Thank you for using this program!!" << endl;
 		}
 		
-	}
+	}while(RunProgram == true);
+
 	_getch();
 	return 0;
 }
@@ -111,50 +116,63 @@ bool CheckInput(char X)
 bool ValidateInput(int Number1, int Number2, char Selection)
 {
 	//Variables for function
-	bool IncorrectInput = true;
+	bool IncorrectInput;
 	double Answer;
 
-	while(IncorrectInput == true)
+	do 
 	{
 		switch(Selection)
 		{
 		case 1:
 			Answer = Number1 + Number2;
 			cout << Number1 << " + " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = true;
+			IncorrectInput = false;
 			return true;
 			break;
 		case 2:
 			Answer = Number1 - Number2;
 			cout << Number1 << " - " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = true;
+			IncorrectInput = false;
 			return true;
 			break;
 		case 3:
 			Answer = Number1 * Number2;
 			cout << Number1 << " * " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = true;
+			IncorrectInput = false;
 			return true;
 			break;
 		case 4:
 			Answer = Number1 / Number2;
 			cout << Number1 << " / " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = true;
+			IncorrectInput = false;
 			return true;
 			break;
 		case 5: 
 			Answer = (Number1 + Number2) / 2;
 			cout << "The Average of " << Number1 << " and " << Number2 << " is " << Answer<< endl;
-			IncorrectInput = true;
-			return true;
-			break;
-		default:
-			cout << "Please enter a number between 1-5!";
 			IncorrectInput = false;
 			return true;
 			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			//code for 6-9 selections, correct input, restart program
+			IncorrectInput = false;
+			return true;
+			break;
+		case 0:
+			//User chose to end, return false so program ends
+			IncorrectInput = false;
+			return false;
+			break;
+		default:
+			cout << "Please enter a number between 1-5!";
+			IncorrectInput = true;
+			return true;
+			break;
 		}
-	}
+	} while(IncorrectInput == true);
 	
 }
 
