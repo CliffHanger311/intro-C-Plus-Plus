@@ -1,17 +1,17 @@
-﻿Build started 10/9/2012 6:00:03 PM.
-     1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Assignment10MenuProgram\Assignment10MenuProgram.vcxproj" on node 2 (build target(s)).
+﻿Build started 10/10/2012 1:37:41 PM.
+     1>Project "C:\Users\student\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Assignment10MenuProgram\Assignment10MenuProgram.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Assignment10MenuProgram.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
        Link:
          All outputs are up-to-date.
-         Assignment10MenuProgram.vcxproj -> C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Debug\Assignment10MenuProgram.exe
+         Assignment10MenuProgram.vcxproj -> C:\Users\student\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Debug\Assignment10MenuProgram.exe
        FinalizeBuildStatus:
          Deleting file "Debug\Assignment10MenuProgram.unsuccessfulbuild".
          Touching "Debug\Assignment10MenuProgram.lastbuildstate".
-     1>Done Building Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Assignment10MenuProgram\Assignment10MenuProgram.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\student\Documents\GitHub\intro-C-Plus-Plus\Assignment10MenuProgram\Assignment10MenuProgram\Assignment10MenuProgram.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.03

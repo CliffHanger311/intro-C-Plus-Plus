@@ -8,7 +8,6 @@ using namespace std;
 //Function prototypes
 bool CheckInput(char);
 bool ValidateInput(int, int, char);
-//int isdigit(double);
 
 int main()
 {
@@ -29,19 +28,20 @@ int main()
 	do 
 	{
 		//request user input
-
 		cout << "Please enter two numbers!" << endl 
 			<< endl;
 
+		//Grab first number
 		cout << "First: ";
 		cin >> FirstNum;
 		cout << endl;
 
+		//grab second number
 		cout << "Second: ";
 		cin >> SecondNum;
 		cout << endl;
 
-		//Ask the user what they want to do, listing the five choices.
+		//Ask the user what they want to do, listing all the choices.
 		cout << "What would you like to do with these numbers?" << endl
 			<< endl
 			<< "1 - Addition" << endl
@@ -57,6 +57,7 @@ int main()
 
 		cout << endl;
 
+		//call funcion to validate the users input
 		RunProgram = ValidateInput(FirstNum, SecondNum, Selection);
 		
 		//Give user choice to continue
@@ -116,41 +117,33 @@ bool CheckInput(char X)
 bool ValidateInput(int Number1, int Number2, char Selection)
 {
 	//Variables for function
-	bool IncorrectInput;
 	double Answer;
 
-	do 
-	{
-		switch(Selection)
+	switch(Selection)
 		{
 		case 1:
 			Answer = Number1 + Number2;
-			cout << Number1 << " + " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = false;
+			cout << Number1 << " + " << Number2 << " equals " << Answer << endl;
 			return true;
 			break;
 		case 2:
 			Answer = Number1 - Number2;
-			cout << Number1 << " - " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = false;
+			cout << Number1 << " - " << Number2 << " equals " << Answer << endl;
 			return true;
 			break;
 		case 3:
 			Answer = Number1 * Number2;
-			cout << Number1 << " * " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = false;
+			cout << Number1 << " * " << Number2 << " equals " << Answer << endl;
 			return true;
 			break;
 		case 4:
 			Answer = Number1 / Number2;
-			cout << Number1 << " / " << Number2 << " equals " << Answer<< endl;
-			IncorrectInput = false;
+			cout << Number1 << " / " << Number2 << " equals " << Answer << endl;
 			return true;
 			break;
 		case 5: 
 			Answer = (Number1 + Number2) / 2;
-			cout << "The Average of " << Number1 << " and " << Number2 << " is " << Answer<< endl;
-			IncorrectInput = false;
+			cout << "The Average of " << Number1 << " and " << Number2 << " is " << Answer << endl;
 			return true;
 			break;
 		case 6:
@@ -158,28 +151,16 @@ bool ValidateInput(int Number1, int Number2, char Selection)
 		case 8:
 		case 9:
 			//code for 6-9 selections, correct input, restart program
-			IncorrectInput = false;
 			return true;
 			break;
 		case 0:
 			//User chose to end, return false so program ends
-			IncorrectInput = false;
 			return false;
 			break;
 		default:
-			cout << "Please enter a number between 1-5!";
-			IncorrectInput = true;
+			cout << "Please enter a number!";
+			cin >> Selection;
 			return true;
 			break;
 		}
-	} while(IncorrectInput == true);
-	
 }
-
-/*
-	To Do list
-	Looking to validate user input for numbers
-	Function top valid input seems to be working
-
-	Needs further debugging 
-*/
