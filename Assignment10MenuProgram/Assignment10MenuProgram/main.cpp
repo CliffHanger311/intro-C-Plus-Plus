@@ -7,14 +7,14 @@ using namespace std;
 
 //Function prototypes
 bool CheckInput(char);
-bool ValidateInput(int, int, char);
+bool ValidateInput(double, double, char);
 
 int main()
 {
 	//Declare Variables
 	double FirstNum = 0;
 	double SecondNum = 0;
-	double Input;
+	//double Input;
 	char C;
 	int Selection = 0;
 
@@ -114,7 +114,7 @@ bool CheckInput(char X)
 	}
 }
 
-bool ValidateInput(int Number1, int Number2, char Selection)
+bool ValidateInput(double Number1, double Number2, char Selection)
 {
 	//Variables for function
 	double Answer;

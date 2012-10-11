@@ -4,29 +4,63 @@
 
 using namespace std;
 
+//Function Prototypes
+bool AscendingPattern(int, char);
+bool DescendingPattern(int, char);
+
 int main()
 {
-	cout << setw(10);
-	 
+	//A few space to lower the pattern for better visablility
+	cout << endl << endl << endl;
 
-	for (int Row = 1; Row < 10; Row++)
+	//For loop for each row
+	for (int Counter = 1; Counter < 10; Counter++)
 	{
-		for (int Column = 1; Column < 4; Column++)
-		{
-		//int o = Row - 10;
-		cout << left << "*";
+		//The reverse counter for descending pattern
+		int ReVerseCount = 10 - Counter;
 
-		//Ten rows of stars and spaces
+		//a quick tab to move pattern from edge of window
+		cout << "\t";
 
-		//Four columns switching order of stars vs spaces
+		//Pairs of versing patterns
+		AscendingPattern(Counter, '*');
+		DescendingPattern(ReVerseCount, ' ');
 
-		//each row trades a star for space, or vise versa
+		DescendingPattern(ReVerseCount, '*');
+		AscendingPattern(Counter, ' ');
 
+		AscendingPattern(Counter, ' ');
+		DescendingPattern(ReVerseCount, '*');
 
-
-
-		}
+		DescendingPattern(ReVerseCount, ' ');
+		AscendingPattern(Counter, '*');
+		
+		//Endl of each row
+		cout << endl;
+				
 	}
 	_getch();
 	return 0;
+}
+
+bool AscendingPattern(int Count, char Symbol)
+{
+	int i = 0;
+	while(i < Count)
+	{
+		cout << Symbol;
+		i++;
+	}
+	return true;
+}
+
+bool DescendingPattern(int Count, char Symbol)
+{
+	int i = 0;
+	while(i < Count)
+	{
+		cout << Symbol;
+		Count--;
+	}
+	return true;
 }
