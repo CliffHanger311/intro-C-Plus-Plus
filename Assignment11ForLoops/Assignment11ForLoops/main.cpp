@@ -45,22 +45,19 @@ int main()
 
 bool AscendingPattern(int Count, char Symbol)
 {
-	int i = 0;
-	while(i < Count)
+	
+	for(int i = 0; i < Count; i++)
 	{
 		cout << Symbol;
-		i++;
 	}
 	return true;
 }
 
 bool DescendingPattern(int Count, char Symbol)
 {
-	int i = 0;
-	while(i < Count)
+	for(int i = 0; i < Count; Count--)
 	{
 		cout << Symbol;
-		Count--;
 	}
 	return true;
 }
