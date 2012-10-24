@@ -12,12 +12,13 @@ using namespace std;
 
 //Function Prototypes
 double Change(double, double);
-void FindChange(double, int, int, int, int, int, int, int, int, int);
+void FindChange(double, int&, int&, int&, int&, int&, int&, int&, int&, int&);
 
 //Const variables for changs Values
 const double Fifty = 50;
 const double Twenty = 20;
 const double Ten = 10;
+const double Five = 5;
 const double One = 1;
 const double Quarter = .25;
 const double Dime = .10;
@@ -34,18 +35,9 @@ int main()
 	double dblResult = 0;
 	bool CheckInput = false;
 
-	//Variable to hold amount of each change amount
-	int Fifties = 0;
-	int Twenties = 0;
-	int Tens = 0;
-	int Fives = 0;
-	int Ones = 0;
-	int Quarters = 0;
-	int Dimes = 0;
-	int Nickles = 0;
-	int Pennies = 0;
 
 	cout << fixed << setprecision(2);
+	cin >> fixed >> setprecision(2);
 	
 	//This is the greeting and purpose of the program
 	cout << "This program is going to ask you for a total price of purchase, " << endl 
@@ -58,7 +50,17 @@ int main()
 	//execute once, then loop the program at users leisure
 	do
 	{
-		
+		//Variable to hold amount of each change amount
+		int Fifties = 0;
+		int Twenties = 0;
+		int Tens = 0;
+		int Fives = 0;
+		int Ones = 0;
+		int Quarters = 0;
+		int Dimes = 0;
+		int Nickles = 0;
+		int Pennies = 0;
+
 		cout << "Please enter the total price of the purchase: ";
 		cin >> dblPrice;
 		cout << endl;
@@ -90,11 +92,23 @@ int main()
 		dblResult = Change(dblPrice, dblPayAmount);
 		
 		//Call function to find each change amount
-		//FindChange(Change, &Fifties, &Twenties, &Tens, &Fives, &Ones, &Quarters, &Dimes, &Nickles, &Pennies);
+		FindChange(dblResult, Fifties, Twenties, Tens, Fives, Ones, Quarters, Dimes, Nickles, Pennies);
 
 		//Output results to the user
 		cout << "Your change is " << dblResult << endl; 
 		cout << endl;
+
+		//Output All the change you will give to the customer
+		cout << "Give the customer the following change:" << endl
+			<< "\tFifies: " << Fifties << endl
+			<< "\tTwenties: " << Twenties << endl
+			<< "\tTens: " << Tens << endl
+			<< "\tFives: " << Fives << endl
+			<< "\tOnes: " << Ones << endl
+			<< "\tQuarters: " << Quarters << endl
+			<< "\tDimes: " << Dimes << endl
+			<< "\tNickles: " << Nickles << endl
+			<< "\tPennies: " << Pennies << endl;
 
 		//Give user choice to continue or quit
 		//***insert cin clear to prevent program from looping with incorrect input
@@ -102,6 +116,7 @@ int main()
 		cin >> C;
 		cout << endl;
 
+		//If statement to ask user if continue
 		if (C == 'q'||C == 'Q')
 		{
 			//Set continue bool to false
@@ -124,57 +139,93 @@ double Change(double Price, double Payment)
 	return Change;
 }
 
-void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Fives, int &Ones, int &Quarters, int &Dimes, int &Nickles, int &Pennies)
+void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Fives, int &Ones, 
+	int &Quarters, int &Dimes, int &Nickles, int &Pennies)
 {
-	if (Change > Fifty)
+	while(Change >= 0.01)
 	{
-		//Calculate how many fifties needed
-		while(Change > Fifty)
+		if (Change >= Fifty)
 		{
-			Change =- Fifty;
-			Fifties++;
+			//Calculate how many fifties needed
+			while(Change >= Fifty)
+			{
+				Change -= Fifty;
+				Fifties++;
+			}
 		}
-
-	}
-	else if(Change > 20)
-	{
-		//Calculate how many Twenties needed
-
-	}
-	else if(Change > 10)
-	{
-		//Calculate how many Tens needed
-
-	}
-	else if(Change > 5)
-	{
-		//Calculate how many Fives needed
-
-	}
-	else if(Change > 1)
-	{
-		//Calculate how many Ones needed
-
-	}
-	else if(Change > .25)
-	{
-		//Calculate how many Quarters needed
-
-	}
-	else if(Change > .10)
-	{
-		//Calculate how many Dimes needed
-
-	}
-	else if(Change > .5)
-	{
-		//Calculate how many Nickles needed
-
-	}
-	else if(Change > .01)
-	{
-		//Calculate how many Pennies needed
-
+		else if(Change >= Twenty)
+		{
+			//Calculate how many Twenties needed
+			while(Change >= Twenty)
+			{
+				Change -= Twenty;
+				Twenties++;
+			}
+		}
+		else if(Change >= Ten)
+		{
+			//Calculate how many Tens needed
+			while(Change >= Ten)
+			{
+				Change -= Ten;
+				Tens++;
+			}
+		}
+		else if(Change >= Five)
+		{
+			//Calculate how many Fives needed
+			while(Change >= Five)
+			{
+				Change -= Five;
+				Fives++;
+			}
+		}
+		else if(Change >= One)
+		{
+			//Calculate how many Ones needed
+			while(Change >= One)
+			{
+				Change -= One;
+				Ones++;
+			}
+		}
+		else if(Change >= Quarter)
+		{
+			//Calculate how many Quarters needed
+			while(Change >= Quarter)
+			{
+				Change -= Quarter;
+				Quarters++;
+			}
+		}
+		else if(Change >= Dime)
+		{
+			//Calculate how many Dimes needed
+			while(Change >= Dime)
+			{
+				Change -= Dime;
+				Dimes++;
+			}
+		}
+		else if(Change >= Nickle)
+		{
+			//Calculate how many Nickles needed
+			while(Change >= Nickle)
+			{
+				Change -= Nickle;
+				Nickles++;
+			}
+		}
+		else 
+		//if(Change >= Penny)
+		{
+			//Calculate how many Pennies needed
+			while(Change >= Penny)
+			{
+				Change -= Penny;
+				Pennies++;
+			}
+		}
 	}
 }
 
