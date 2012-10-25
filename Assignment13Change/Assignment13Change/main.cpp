@@ -128,6 +128,9 @@ int main()
 		}
 	}while(blnContinue == true);
 
+	//Output farewell to user
+	cout << "Thank you for using thsi program, come back soon!" << endl;
+
 	_getch();
 	return 0;
 }
@@ -142,8 +145,6 @@ double Change(double Price, double Payment)
 void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Fives, int &Ones, 
 	int &Quarters, int &Dimes, int &Nickles, int &Pennies)
 {
-	while(Change >= 0.01)
-	{
 		if (Change >= Fifty)
 		{
 			//Calculate how many fifties needed
@@ -153,7 +154,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Fifties++;
 			}
 		}
-		else if(Change >= Twenty)
+		
+		if(Change >= Twenty)
 		{
 			//Calculate how many Twenties needed
 			while(Change >= Twenty)
@@ -162,7 +164,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Twenties++;
 			}
 		}
-		else if(Change >= Ten)
+		
+		if(Change >= Ten)
 		{
 			//Calculate how many Tens needed
 			while(Change >= Ten)
@@ -171,7 +174,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Tens++;
 			}
 		}
-		else if(Change >= Five)
+		
+		if(Change >= Five)
 		{
 			//Calculate how many Fives needed
 			while(Change >= Five)
@@ -180,7 +184,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Fives++;
 			}
 		}
-		else if(Change >= One)
+		
+		if(Change >= One)
 		{
 			//Calculate how many Ones needed
 			while(Change >= One)
@@ -189,7 +194,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Ones++;
 			}
 		}
-		else if(Change >= Quarter)
+		
+		if(Change >= Quarter)
 		{
 			//Calculate how many Quarters needed
 			while(Change >= Quarter)
@@ -198,7 +204,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Quarters++;
 			}
 		}
-		else if(Change >= Dime)
+		
+		if(Change >= Dime)
 		{
 			//Calculate how many Dimes needed
 			while(Change >= Dime)
@@ -207,7 +214,8 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Dimes++;
 			}
 		}
-		else if(Change >= Nickle)
+		
+		if(Change >= Nickle)
 		{
 			//Calculate how many Nickles needed
 			while(Change >= Nickle)
@@ -216,22 +224,11 @@ void FindChange(double Change, int &Fifties, int &Twenties, int &Tens, int &Five
 				Nickles++;
 			}
 		}
-		else 
-		//if(Change >= Penny)
+		 
+		if(Change >= Penny)
 		{
-			//Calculate how many Pennies needed
-			while(Change >= Penny)
-			{
-				Change -= Penny;
-				Pennies++;
-			}
+			Change = Change * 100;
+			Pennies = (int) Change;
 		}
-	}
 }
 
-/*
-	To do list
-	Working on the FindChange function
-	Having trouble passing variables by ref
-	using const for change values
-*/
