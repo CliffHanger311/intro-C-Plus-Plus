@@ -22,7 +22,7 @@ line::line(int w, int h)
 	{
 		if (h < 100)
 		{
-		_height = h;
+			_height = h;
 		}
 		else
 		{
