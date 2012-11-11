@@ -1,4 +1,4 @@
-﻿Build started 11/11/2012 12:52:02 AM.
+﻿Build started 11/4/2012 2:54:09 AM.
      1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment15Struct\Assignment15Struct\Assignment15Struct.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Assignment15Struct.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.96
+Time Elapsed 00:00:01.00
