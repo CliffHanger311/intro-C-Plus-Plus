@@ -19,6 +19,23 @@ int main()
 	cout << b << endl;
 	cout << c << endl;
 
+	cout << "************************";
+
+	box arrBox[5];
+	int arrBoxLength = 5;
+
+	for (int i = 0; i < arrBoxLength; i++)
+	{
+
+		arrBox[i] = NULL;
+
+	}
+
+	for (int i = 0; i < arrBoxLength; i++)
+	{
+		cout << arrBox[i] << endl << endl;
+	}
+	
 	_getch();
 	return 0;
 }

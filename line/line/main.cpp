@@ -7,6 +7,14 @@ using namespace std;
 
 int main()
 {
+	int arrMiles[5];
+	cout << arrMiles[0];
+
+
+
+
+
+
 	int width;
 	int height;
 	cout << "please enter a line height: ";
@@ -39,3 +47,4 @@ int main()
 	_getch();
 	return 0;
 }
+
