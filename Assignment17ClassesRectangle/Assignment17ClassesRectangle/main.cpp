@@ -7,17 +7,25 @@ using namespace std;
 
 int main()
 {
+	//Variable to hold user input
 	int width;
 	int height;
-	cout << "please enter a line height: ";
+	Rectangle r;
+
+	//Ask user for input, then set to variables
+	cout << "Please enter the rectangle height: ";
 	cin >> height;
-	cout << endl << "please enter a line width: ";
+	cout << endl << "Please enter the rectangle width: ";
 	cin >> width;
 	cout << endl;
-
-	Rectangle r(width, height);
-
+		
+	//Check limits of input, and set to rectangle
+	r.setRec(height, width);
+	
+	//Output Results: Rectangle, Area, and Perimeter
 	cout << r.toString();
+	cout << endl << "Area: " << r.findArea(r);
+	cout << endl << "Perimeter: " << r.findPerimeter(r);
 
 	_getch();
 	return 0;

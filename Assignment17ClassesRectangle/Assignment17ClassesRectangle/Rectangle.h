@@ -11,15 +11,14 @@ private:
 	int _width;
 	int _height;
 
-
 public:
 	//Contructors
 	Rectangle();
-	Rectangle(int w, int h);
+	Rectangle(int, int);
 
 	//Methods
-	void setHeight(int h);
-	void setWidth(int w);
+	void setRec(int, int);
 	string toString();
-
+	int findArea(Rectangle);
+	int findPerimeter(Rectangle);
 };
