@@ -12,7 +12,7 @@ Rectangle::Rectangle()
 	_height = 1;
 }
 
-Rectangle::Rectangle(int w, int h)
+Rectangle::Rectangle(int h, int w)
 {
 	//User specified size
 	_width = w;
