@@ -1,11 +1,11 @@
-﻿Build started 12/13/2012 3:16:56 PM.
+﻿Build started 12/15/2012 9:44:17 PM.
      1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment17BTurkey\Assignment17BTurkey\Assignment17BTurkey.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Assignment17BTurkey.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\cliffhanger\documents\github\intro-c-plus-plus\assignment17bturkey\assignment17bturkey\main.cpp(73): warning C4715: 'Continue' : not all control paths return a value
+     1>c:\users\cliffhanger\documents\github\intro-c-plus-plus\assignment17bturkey\assignment17bturkey\main.cpp(76): warning C4715: 'Continue' : not all control paths return a value
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment17BTurkey\Debug\Assignment17BTurkey.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Assignment17BTurkey.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment17BTurkey\Debug\Assignment17BTurkey.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment17BTurkey\Debug\Assignment17BTurkey.lib" /MACHINE:X86 Debug\main.obj
          Debug\turkey.obj
@@ -20,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.24
+Time Elapsed 00:00:01.62

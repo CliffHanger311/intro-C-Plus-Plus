@@ -1,5 +1,7 @@
 #include <iostream>
 #include <conio.h>
+#include <string>
+using namespace std;
 
 class Turkey
 {
@@ -10,5 +12,6 @@ public:
 	//Contructors
 	Turkey();
 	Turkey(int);
+	string ToString(int);
 
 };

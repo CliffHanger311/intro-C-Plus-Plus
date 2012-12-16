@@ -8,7 +8,6 @@ bool Continue(char);
 //Global Variables
 bool blnContinue = false;
 
-
 int main()
 {
 	//Variable to hold input
@@ -24,9 +23,12 @@ int main()
 		cout << "How large of a turkey are you looking for?" << endl
 			<< "Please enter a number: ";
 		cin >> TurkeySize;
+		cout << endl;
 
-		//Turkey ASCII code here
-		cout << TurkeySize << endl;
+		//Call function to display turkey
+		Turkey userTurkey(TurkeySize);
+		cout << userTurkey.ToString(TurkeySize);
+		cout << endl;
 
 		//Ask user if they wish to continue
 		cout << "Is this the right size of turkey for you, or should we try another?" << endl;
