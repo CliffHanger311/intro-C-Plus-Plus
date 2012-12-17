@@ -1,8 +1,5 @@
 #include <glut.h>
 
-
-
-
 class square
 {
 private:

@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <iostream>
 #include <glut.h>
+#include "shape.h"
+
 using namespace std;
+
 
 
 /* GLfloat arrays to specify colors */ 
@@ -18,6 +21,10 @@ static GLfloat magenta[] = {1.0, 0.0, 1.0, 1.0};
 static GLfloat cyan[]    = {0.0, 1.0, 1.0, 1.0}; 
 static GLfloat cyan_dull[]= {0.0, 0.4, 0.4, 1.0}; 
 
+//New code for displaying Shapes
+   shape s(1,1,1,green);
+   static GLfloat changeColor[]    = {0.0, 1.0, 1.0, 1.0};
+
 void writeMessage();
 void init();
 void reshape(int, int);
@@ -29,8 +36,10 @@ static GLfloat light_one[] = {0.5, 0.0, 30.0, 5.0};
 // position of viewer 
 static GLdouble viewer[] = {0.0, -2.0, 20.0}; 
 
-//x postion of first triangle
+//Postion of first triangle
 GLfloat x_pos = 0.0f;
+GLfloat y_pos = 0.0f;
+GLfloat z_pos = 0.0f;
 
 int counter = 0;
 
@@ -57,13 +66,12 @@ void display()
    glLightfv(GL_LIGHT0, GL_POSITION, light_one);
    /*end boiler*/
 
-   //yellow triangle
-   glBegin(GL_TRIANGLES);
-       glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, yellow);
-	   glVertex3f(-10,0,0);
-	   glVertex3f(-10,-5,0);
-       glVertex3f(-5,-5,0);
-   glEnd();
+   /*
+	Need object, then object.draw here.
+	Remove the yellow triangle stuff
+   */
+
+  s.draw();
 
    /*start boiler*/
    glFlush();
@@ -75,17 +83,70 @@ void display()
 void keyboard(unsigned char key, int x, int y)
 {
    //user interaction here
-	
+	//for shift keys(shortkeys) test for the capitol letter
+	//With the s error, replace s with class variables
+
+	switch(key)
+	{
+	case 'o':
+		s.hide();
+		break;
+
+	case 'p':
+		s.show();
+		break;
+
+	case 'w':
+		s.move(0, 0.1, 0);
+		break;
+
+	case 'a':
+		s.move(-0.1, 0, 0);
+		break;
+
+	case 's':
+		s.move(0, -0.1, 0);
+		break;
+
+	case 'd':
+		s.move(0.1, 0, 0);
+		break;
+
+	case '1':
+		changeColor[0] += 0.1;
+		break;
+
+	case '2':
+		changeColor[1] += 0.1;
+		break;
+
+	case '3':
+		changeColor[2] += 0.1;
+		break;
+
+	case '4':
+		changeColor[4] += 0.1;
+		break;
+
+	}
+
+	s.setColor(changeColor);
+
+
 	glutPostRedisplay();
 }
-
-
 
 //output in initial console
 void writeMessage()
 {
    //any control instructions go here
    cout << "OpenGL Demo" << endl;
+
+   /*
+   Use this function to debug in the console
+   Outputting Positions coodinates to find bugs
+   */
+
 }
 
 //allows for resizing
@@ -98,21 +159,21 @@ void reshape(int w, int h)
    glMatrixMode(GL_MODELVIEW);
 }
 
-
 void init() 
 {
    writeMessage(); 
    //"Background" color = white
    glClearColor(1.0, 1.0, 1.0, 1.0);
    glShadeModel(GL_SMOOTH);
-   //GL_FILL = Filled Triangles|GL_LINE = wire framed outline
+   /*
+   GL_FILL = Filled Shapes|GL_LINE = wire framed outline
+   */
    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
       /* GL_FILL, GL_LINE to show wireframe */
    glEnable(GL_DEPTH_TEST);
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
 }
-
 
 int main(int argc, char** argv)
 {
@@ -128,3 +189,15 @@ int main(int argc, char** argv)
    glutMainLoop();
    return 0;
 }
+
+
+
+/*
+	Got program started with one square: 1 width
+	Haven't looked for 3d depth yet, but it should be there
+		-Need to be able to turn prespective, fully move around objects
+		-Then start with creating a full object of a letter, or collection of objects then make the letter
+
+	Bugs
+		When moving color swithes the first couple then stops at a teal
+*/
