@@ -23,6 +23,12 @@ static GLfloat cyan_dull[]= {0.0, 0.4, 0.4, 1.0};
    shape s(1,1,1,gray);
    static GLfloat changeColor[4];
 
+   //Array to hold all shapes
+   const int letterHeight = 10;
+   const int letterLength = 5;
+   shape* allShapes[letterLength];
+   void drawLetter();
+
 void writeMessage();
 void init();
 void reshape(int, int);
@@ -41,17 +47,18 @@ GLfloat z_pos = 0.0f;
 
 int counter = 0;
 
-//to do 3d objects, add GLfloat z variable
-//May not need this function
-//void DrawQuad(GLfloat width, GLfloat x, GLfloat y)
+//do all rendering here, "should" only call .draw on objects
+//void draw(GLenum mode)
 //{
-//	glBegin(GL_QUADS);
-//	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, blue);
-//	   glVertex3f(0 + x,0 + y,0.1);
-//	   glVertex3f(width + x, 0 + y, 0.1);
-//       glVertex3f(width + x,-width + y,0.1);
-//	   glVertex3f(0 + x,-width + y,0.1);
-//   glEnd();
+//	//loop through squares array and draw
+//	for (int i = 0; i < letterLength; i++)
+//	{
+//		if (mode == GL_SELECT) glLoadName(allShapes[i]->getName());
+//		allShapes[i]->draw();
+//	}
+//
+//	//force update (only if we changed something, should have this in mouse or keyboard functions
+//	glutPostRedisplay();
 //}
 
 void display()
@@ -64,11 +71,12 @@ void display()
    //draw light source
    glLightfv(GL_LIGHT0, GL_POSITION, light_one);
    /*end boiler*/
-
-   /*
-	Need object, then object.draw here.
-	Remove the yellow triangle stuff
-   */
+   
+   /*for (int i = 0; i < letterLength; i++)
+   {
+	   allShapes[i]->move();
+	   allShapes[i]->rotate();
+   }*/
 
     s.draw();
 
@@ -77,8 +85,6 @@ void display()
    glutSwapBuffers();
    /*end boiler*/
 }
-
-
 void keyboard(unsigned char key, int x, int y)
 {
    //user interaction here
@@ -107,6 +113,12 @@ void keyboard(unsigned char key, int x, int y)
 		break;
 	case 'd':
 		s.move(0.1, 0, 0);
+		break;
+	case 'q':
+		s.move(0, 0, 0.1);
+		break;
+	case 'e':
+		s.move(0, 0, -0.1);
 		break;
 
 		//Change Color of object
@@ -142,7 +154,6 @@ void keyboard(unsigned char key, int x, int y)
 	case '-':
 		viewer[2] -= 0.5f;
 		break;
-
 
 /*
 	//Other viewer movements
