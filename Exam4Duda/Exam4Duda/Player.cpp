@@ -65,10 +65,10 @@ string SportsPlayer::toString(SportsPlayer Temp)
 	string output;
 	
 	//Format output here
-	output += Temp._JerseyNumber;
-	output += Temp._Name;
-	output += Temp._Age;
-	output += Temp._Points;
+	output += Temp._JerseyNumber + "\t";
+	output += Temp._Name + "\t";
+	output += Temp._Age + "\t";
+	output += Temp._Points + "\t";
 	output += Temp._Attempts;
 
 	return output;

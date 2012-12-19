@@ -1,7 +1,7 @@
-﻿Build started 12/18/2012 11:30:25 PM.
+﻿Build started 12/19/2012 2:27:47 PM.
      1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Exam4Duda\Exam4Duda\Exam4Duda.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\Exam4Duda.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\Exam4Duda.unsuccessfulbuild".
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp
          Player.cpp
@@ -19,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.29
+Time Elapsed 00:00:01.30

@@ -33,7 +33,8 @@ int main()
 
 	CreateArray(TeamSize);
 
-	cout << setw(10) << left << "Number"
+	cout << setw(10) << left << "Player"
+		<< setw(10) << left << "Number"
 		<< setw(20) << left << "Name"
 		<< setw(20) << right << "Age"
 		<< setw(10) << right << "Points"
@@ -41,8 +42,9 @@ int main()
 
 	for (int i = 0; i < TeamSize; i++)
 	{
+		cout << "Player " << i << " - ";
 		Player = myTeam[i];
-		cout << setw(15) << Player.toString(Player) << endl;
+		cout << Player.toString(Player) << endl;
 	}
 
 	_getch();
