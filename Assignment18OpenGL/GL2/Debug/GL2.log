@@ -1,4 +1,4 @@
-﻿Build started 12/17/2012 2:11:43 PM.
+﻿Build started 12/17/2012 8:02:22 PM.
      1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\GL2\GL2.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\GL2.unsuccessfulbuild".
@@ -8,6 +8,7 @@
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GL2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.lib" /MACHINE:X86 Debug\main.obj
          Debug\shape.obj
+         LINK : C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.exe not found or not built by the last incremental link; performing full link
          GL2.vcxproj -> C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.exe
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\Debug\GL2.exe;#1" /manifest Debug\GL2.exe.intermediate.manifest
@@ -18,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.02
+Time Elapsed 00:00:01.03

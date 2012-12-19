@@ -15,13 +15,12 @@ private:
 	GLfloat _angleIncrement_z;
 	GLint _name;
 
-	/*GLfloat _top, _bottom, _left, _right;
-	
+	/*
+	GLfloat _top, _bottom, _left, _right;
 	string _type;
-	
-	
 	GLfloat getNewVelocity();
-	int getNegative();*/
+	int getNegative();
+	*/
 
 public:
 	shape();
@@ -50,10 +49,7 @@ public:
 
 	/*
 	string getType();
-	
 	GLfloat _velocity_x;
-	GLfloat _velocity_y;
-
-	
+	GLfloat _velocity_y;	
 	*/
 };

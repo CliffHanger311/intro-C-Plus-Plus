@@ -77,8 +77,8 @@ void display()
 	   allShapes[i]->move();
 	   allShapes[i]->rotate();
    }*/
-
-    s.draw();
+	
+   s.draw();
 
    /*start boiler*/
    glFlush();

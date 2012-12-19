@@ -92,7 +92,6 @@ void shape::draw()
    }
 }
 
-
 //move the square x and y values 
 void shape::move(GLfloat move_x, GLfloat move_y)
 {
