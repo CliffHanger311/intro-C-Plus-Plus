@@ -1,7 +1,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <iostream>
-#include <glut.h>
 #include "shape.h"
 
 using namespace std;
@@ -23,6 +22,10 @@ static GLfloat cyan_dull[]= {0.0, 0.4, 0.4, 1.0};
    shape s(1,1,1,gray);
    static GLfloat changeColor[4];
 
+   //Dimension of window
+static int ww = 1280;
+static int wh = 700;
+
    //Array to hold all shapes
    const int letterHeight = 10;
    const int letterLength = 5;
@@ -35,9 +38,16 @@ void reshape(int, int);
 void display();
 void keyboard(unsigned char, int, int);
 
-//position of light
+/*
+	position of light
+	{x,y,z,UnK}
+*/
 static GLfloat light_one[] = {0.5, 0.0, 30.0, 5.0};
-// position of viewer 
+
+/*
+	position of viewer
+	{x,y,z}
+*/
 static GLdouble viewer[] = {0.0, -2.0, 20.0}; 
 
 //Postion of first shape
@@ -45,21 +55,24 @@ GLfloat x_pos = 0.0f;
 GLfloat y_pos = 0.0f;
 GLfloat z_pos = 0.0f;
 
-int counter = 0;
+int moveCounter = 0;
 
 //do all rendering here, "should" only call .draw on objects
-//void draw(GLenum mode)
-//{
-//	//loop through squares array and draw
-//	for (int i = 0; i < letterLength; i++)
-//	{
-//		if (mode == GL_SELECT) glLoadName(allShapes[i]->getName());
-//		allShapes[i]->draw();
-//	}
-//
-//	//force update (only if we changed something, should have this in mouse or keyboard functions
-//	glutPostRedisplay();
-//}
+void draw(GLenum mode)
+{
+	//loop through squares array and draw
+	/*for (int i = 0; i < letterLength; i++)
+	{
+		if (mode == GL_SELECT) glLoadName(allShapes[i]->getName());
+		allShapes[i]->draw();
+	}*/
+
+	s.draw();
+	s.setLimits(10, -10, -15, 15);
+
+	//force update (only if we changed something, should have this in mouse or keyboard functions
+	glutPostRedisplay();
+}
 
 void display()
 {
@@ -71,20 +84,21 @@ void display()
    //draw light source
    glLightfv(GL_LIGHT0, GL_POSITION, light_one);
    /*end boiler*/
-   
-   /*for (int i = 0; i < letterLength; i++)
+
+  /*for (int i = 0; i < letterLength; i++)
    {
 	   allShapes[i]->move();
 	   allShapes[i]->rotate();
    }*/
-	
-   s.draw();
+
+    draw(GL_RENDER);
 
    /*start boiler*/
    glFlush();
    glutSwapBuffers();
    /*end boiler*/
 }
+
 void keyboard(unsigned char key, int x, int y)
 {
    //user interaction here
@@ -206,33 +220,61 @@ void reshape(int w, int h)
    glMatrixMode(GL_MODELVIEW);
 }
 
+void initialize()
+{
+	//create all of our shapes
+	GLfloat tempColor[4] = {0.0, 0.0, 1.0, 1.0};
+	for (int i = 0; i < letterLength; i++)
+	{
+		allShapes[i] = new shape;
+
+		allShapes[i]->move(rand() % 10, rand() % 10);
+		//set color
+		allShapes[i]->setColor(tempColor);
+		//new random color
+		tempColor[0] = (rand() % 10) /(float) 10;
+		tempColor[1] = (rand() % 10) / (float) 10;
+		tempColor[2] =  (rand() % 10) /(float) 10;
+		//set negative or positive value
+		
+		allShapes[i]->setLimits(10, -10, -15, 15);
+		//set different z values so we dont get overlap
+        //allShapes[i]->z = i / (float) 100;
+		allShapes[i]->setName((GLint) i);
+		
+		cout << allShapes[i] << endl;
+	}
+}
+
 void init() 
 {
    writeMessage(); 
    //"Background" color = white
    glClearColor(1.0, 1.0, 1.0, 1.0);
    glShadeModel(GL_SMOOTH);
-   /*
-   GL_FILL = Filled Shapes|GL_LINE = wire framed outline
-   */
    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-      /* GL_FILL, GL_LINE to show wireframe */
+   /* GL_FILL, GL_LINE to show wireframe */
    glEnable(GL_DEPTH_TEST);
    glEnable(GL_LIGHTING);
    glEnable(GL_LIGHT0);
+   initialize();
 }
 
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-   glutInitWindowSize(1280, 700); 
+   //glutInitWindowSize(1280, 700); 
+   glutInitWindowSize(ww, wh); 
    glutInitWindowPosition(50, 50);
    glutCreateWindow(argv[0]);
    init();
+   //pass display delegate
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape); 
    glutKeyboardFunc(keyboard);
+   //glutMouseFunc(mouseClick); 
+   //glutMotionFunc(mouseMove);
    glutMainLoop();
    return 0;
 }
@@ -247,4 +289,5 @@ int main(int argc, char** argv)
 
 	Bugs
 		color changes are a step behind button press
+		have limits sets, but aren't functioning
 */

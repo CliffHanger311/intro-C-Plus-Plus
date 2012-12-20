@@ -1,4 +1,5 @@
 #include "shape.h"
+#include <string>
 
 //square();
 shape::shape()
@@ -6,9 +7,16 @@ shape::shape()
 	_width = 1.0f;
 	_length = 1.0f;
 	_isVisable = true;
+
 	x = 0;
 	y = 0;
 	z = 0;
+
+	_color = new GLfloat[4];
+	_color[0] = 0.5;
+	_color[1] = 0.5;
+	_color[2] = 0.5;
+	_color[3] = 1.0;
 }
 
 //square(GLfloat);
@@ -32,6 +40,7 @@ shape::shape(GLfloat width, GLfloat length, GLfloat * color)
 	_width = width;
 	_length = length;
 	_isVisable = true;
+
 	x = 0;
 	y = 0;
 	z = 0;
@@ -93,6 +102,12 @@ void shape::draw()
 }
 
 //move the square x and y values 
+//void shape::move(GLfloat move_x, GLfloat move_y)
+//{
+//	x += move_x;
+//	y += move_y;
+//}
+
 void shape::move(GLfloat move_x, GLfloat move_y)
 {
 	x += move_x;
@@ -104,6 +119,14 @@ void shape::move(GLfloat move_x, GLfloat move_y, GLfloat move_z)
 	x += move_x;
 	y += move_y;
 	z += move_z;
+}
+
+void shape::setLimits(GLfloat top, GLfloat bottom, GLfloat left, GLfloat right)
+{
+	_top = top;
+	_bottom = bottom;
+	_left = left;
+	_right = right;
 }
 
 void shape::setColor(GLfloat* color)
@@ -131,3 +154,22 @@ void shape::rotate()
 		_angle += _angleIncrement_x;
 	}
 }
+
+int shape::getNegative()
+{
+	int multiplier = 1;
+	if (rand() % 2 == 0) multiplier = -1;
+	return multiplier;
+}
+
+GLfloat shape::getNewVelocity()
+{
+	
+	return (rand() % 100) /(float) 10000;
+
+}
+
+//string shape::getType()
+//{
+//	return _type;
+//}

@@ -1,4 +1,4 @@
-﻿Build started 12/17/2012 8:02:22 PM.
+﻿Build started 12/19/2012 7:18:53 PM.
      1>Project "C:\Users\CliffHanger\Documents\GitHub\intro-C-Plus-Plus\Assignment18OpenGL\GL2\GL2.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\GL2.unsuccessfulbuild".
@@ -19,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.03
+Time Elapsed 00:00:01.02

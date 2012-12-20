@@ -1,26 +1,23 @@
+#include <stdlib.h>
 #include <glut.h>
+#include <iostream>
+#include <string>
 
 class shape
 {
 private:
-	GLfloat _width;
-	GLfloat _length;
-	GLfloat _depth;
+	GLfloat _width, _length, _depth;
 	bool _isVisable;
 	GLfloat x,y,z;
 	GLfloat *_color;
 	GLfloat _angle;
-	GLfloat _angleIncrement_x;
-	GLfloat _angleIncrement_y;
-	GLfloat _angleIncrement_z;
+	GLfloat _angleIncrement_x, _angleIncrement_y, _angleIncrement_z;
+	GLfloat _top, _bottom, _left, _right;
 	GLint _name;
 
-	/*
-	GLfloat _top, _bottom, _left, _right;
-	string _type;
+	//string _type;
 	GLfloat getNewVelocity();
 	int getNegative();
-	*/
 
 public:
 	shape();
@@ -38,18 +35,16 @@ public:
 	void move(GLfloat, GLfloat);
 	void move(GLfloat,GLfloat,GLfloat);
 
-	void setColor(GLfloat*);
 	void setLimits(GLfloat, GLfloat, GLfloat, GLfloat);
-
+	void setColor(GLfloat*);
+	
 	GLint getName();
 	void setName(GLint);
 
 	bool isRotating;
 	void rotate();
 
-	/*
-	string getType();
+	//string getType();
 	GLfloat _velocity_x;
-	GLfloat _velocity_y;	
-	*/
+	GLfloat _velocity_y;
 };
